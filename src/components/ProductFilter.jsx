@@ -56,13 +56,26 @@ const ProductFilter = ({ products, onFilterChange }) => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                 <div>
                     <label className="block text-xs text-muted mb-2">Search</label>
-                    <input
-                        type="text"
-                        placeholder="Search products..."
-                        value={filters.search}
-                        onChange={(e) => handleFilterChange('search', e.target.value)}
-                        className="input-field"
-                    />
+                    <div className="relative">
+                       <input
+                           type="text"
+                            placeholder="Search products..."
+                            value={filters.search}
+                            onChange={(e) => handleFilterChange('search', e.target.value)}
+                            className="input-field"
+                       />
+
+                    {filters.search && (
+                        <button
+                             type="button"
+                             onClick={() => handleFilterChange('search', '')}
+                             className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-muted hover:text-accent transition-colors"
+                             aria-label="Clear search"
+                       >
+                             ×
+                        </button>
+    )}
+                    </div> 
                 </div>
 
                 <div>
