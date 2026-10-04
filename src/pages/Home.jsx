@@ -166,7 +166,8 @@ const Home = () => {
                     <h2 className="heading-display text-xl md:text-2xl">
                         Collection
                         <span className="text-muted font-sans text-base ml-2">
-                            ({filteredProducts.length})
+                            ({filteredProducts.length}{' '}
+                            {filteredProducts.length === 1 ? 'Product' : 'Products'})
                         </span>
                     </h2>
                 </div>
