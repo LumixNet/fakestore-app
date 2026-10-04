@@ -80,6 +80,7 @@ const ProductFilter = ({ products, onFilterChange }) => {
 
                 <div>
                     <label className="block text-xs text-muted mb-2">Category</label>
+                    <div className="relative">
                     <select
                         value={filters.category}
                         onChange={(e) => handleFilterChange('category', e.target.value)}
@@ -91,8 +92,21 @@ const ProductFilter = ({ products, onFilterChange }) => {
                                     ? 'All Categories'
                                     : category.charAt(0).toUpperCase() + category.slice(1)}
                             </option>
-                        ))}
+                        ))}                   
+                        
                     </select>
+
+                       {filters.category !== 'all' && (
+                            <button
+                               type="button"
+                               onClick={() => handleFilterChange('category', 'all')}
+                                className="absolute right-8 top-1/2 -translate-y-1/2"
+                            >
+                               ×
+                            </button>
+                       )}              
+                    
+                    </div>
                 </div>
 
                 <div>
